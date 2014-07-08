@@ -1,39 +1,28 @@
-var express = require('express');
-var twilio = require('twilio');
-var bodyParser = require('body-parser');
-
-function TwillioObject(){
-    this.client = new twilio.RestClient('AC92abf988b6eddaa9fc704166623e84c3', '5cabb4232697375f86607f969bb71d85');
-
-}
-
-    TwillioObject.prototype.sendText = function(){  
-     
-    // Pass in parameters to the REST API using an object literal notation. The
-    // REST client will handle authentication and response serialzation for you.
-    client.sms.messages.create({
-        to:'+18017696432',
-        from:'+18016920756',
-        body: newEventTitle + ' at ' + newEventLocation + ' at ' + newEventTime + '. Click the link if you\'ll be there:'
-    }, function(error, message) {
-        // The HTTP request to Twilio will run asynchronously. This callback
-        // function will be called when a response is received from Twilio
-        // The "error" variable will contain error information, if any.
-        // If the request was successful, this value will be "falsy"
-        if (!error) {
-            // The second argument to the callback will contain the information
-            // sent back by Twilio for the request. In this case, it is the
-            // information about the text messsage you just sent:
-            console.log('Success! The SID for this SMS message is:');
-            console.log(message.sid);
-     
-            console.log('Message sent on:');
-            console.log(message.dateCreated);
-        } else {
-            console.log('Oops! There was an error.');
-        }
-    });
-};
+var accountSid = 'AC92abf988b6eddaa9fc704166623e84c3';
+var authToken = '5cabb4232697375f86607f969bb71d85';
 
 
+//require the Twilio module and create a REST client
+var client = require('/usr/local/lib/node_modules/twilio')(accountSid, authToken);
 
+client.sendMessage({
+
+    to:'+18017696432', // Any number Twilio can deliver to
+    from: '+18016920756', // A number you bought from Twilio and can use for outbound communication
+    body: 'This is Ryan. How is your project coming?' // body of the SMS message
+
+}, function(err, responseData) { //this function is executed when a response is received from Twilio
+
+    if (!err) { // "err" is an error received during the request, if any
+
+        // "responseData" is a JavaScript object containing data received from Twilio.
+        // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
+        // http://www.twilio.com/docs/api/rest/sending-sms#example-1
+
+        console.log(responseData.from); // outputs "+14506667788"
+        console.log(responseData.body); // outputs "word to your mother."
+
+    }else{
+        console.log(err);
+    }
+});
