@@ -1,0 +1,14 @@
+{
+  "name": "tippedevents",
+  "version": "0.0.1",
+  "dependencies": {
+  	  "express": "*",
+      "angular": "*",
+      "bootstrap": "*",
+      "font-awesome": "*",
+      "angular-fire": "*",
+      "firebase": "*",
+      "body-parser": "*"
+      
+    }
+}

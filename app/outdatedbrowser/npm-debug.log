@@ -1,0 +1,159 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'mongo-hacker' ]
+2 info using npm@1.4.9
+3 info using node@v0.10.28
+4 verbose cache add [ 'mongo-hacker', null ]
+5 verbose cache add name=undefined spec="mongo-hacker" args=["mongo-hacker",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'mongo-hacker',
+6 verbose parsed url   path: 'mongo-hacker',
+6 verbose parsed url   href: 'mongo-hacker' }
+7 silly lockFile 1933551c-mongo-hacker mongo-hacker
+8 verbose lock mongo-hacker /Users/MacBookPro/.npm/1933551c-mongo-hacker.lock
+9 silly lockFile 1933551c-mongo-hacker mongo-hacker
+10 silly lockFile 1933551c-mongo-hacker mongo-hacker
+11 verbose addNamed [ 'mongo-hacker', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile bf903ed2-mongo-hacker mongo-hacker@
+14 verbose lock mongo-hacker@ /Users/MacBookPro/.npm/bf903ed2-mongo-hacker.lock
+15 silly addNameRange { name: 'mongo-hacker', range: '*', hasData: false }
+16 verbose url raw mongo-hacker
+17 verbose url resolving [ 'https://registry.npmjs.org/', './mongo-hacker' ]
+18 verbose url resolved https://registry.npmjs.org/mongo-hacker
+19 info trying registry request attempt 1 at 09:24:50
+20 verbose etag "D8UXQLYB368XJTG9KSQWW474C"
+21 http GET https://registry.npmjs.org/mongo-hacker
+22 http 304 https://registry.npmjs.org/mongo-hacker
+23 silly registry.get cb [ 304,
+23 silly registry.get   { date: 'Fri, 04 Jul 2014 15:24:54 GMT',
+23 silly registry.get     server: 'Apache',
+23 silly registry.get     via: '1.1 varnish',
+23 silly registry.get     'last-modified': 'Fri, 04 Jul 2014 15:24:54 GMT',
+23 silly registry.get     'cache-control': 'max-age=30',
+23 silly registry.get     etag: '"D8UXQLYB368XJTG9KSQWW474C"',
+23 silly registry.get     'x-served-by': 'cache-lax1435-LAX',
+23 silly registry.get     'x-cache': 'MISS',
+23 silly registry.get     'x-cache-hits': '0',
+23 silly registry.get     'x-timer': 'S1404487494.239264,VS0,VE86',
+23 silly registry.get     vary: 'Accept',
+23 silly registry.get     'content-length': '0',
+23 silly registry.get     'keep-alive': 'timeout=10, max=50',
+23 silly registry.get     connection: 'Keep-Alive' } ]
+24 verbose etag mongo-hacker from cache
+25 silly addNameRange number 2 { name: 'mongo-hacker', range: '*', hasData: true }
+26 silly addNameRange versions [ 'mongo-hacker', [ '0.0.3' ] ]
+27 verbose addNamed [ 'mongo-hacker', '0.0.3' ]
+28 verbose addNamed [ '0.0.3', '0.0.3' ]
+29 silly lockFile f6c382ed-mongo-hacker-0-0-3 mongo-hacker@0.0.3
+30 verbose lock mongo-hacker@0.0.3 /Users/MacBookPro/.npm/f6c382ed-mongo-hacker-0-0-3.lock
+31 silly lockFile f6c382ed-mongo-hacker-0-0-3 mongo-hacker@0.0.3
+32 silly lockFile f6c382ed-mongo-hacker-0-0-3 mongo-hacker@0.0.3
+33 silly lockFile bf903ed2-mongo-hacker mongo-hacker@
+34 silly lockFile bf903ed2-mongo-hacker mongo-hacker@
+35 silly resolved [ { name: 'mongo-hacker',
+35 silly resolved     version: '0.0.3',
+35 silly resolved     description: 'MongoDB Shell Enhancements for Hackers',
+35 silly resolved     scripts:
+35 silly resolved      { test: 'echo "Error: no test specified" && exit 1',
+35 silly resolved        install: 'make all',
+35 silly resolved        update: 'make all',
+35 silly resolved        postuninstall: 'make uninstall' },
+35 silly resolved     repository:
+35 silly resolved      { type: 'git',
+35 silly resolved        url: 'git@github.com:TylerBrock/mongo-hacker.git' },
+35 silly resolved     keywords: [ 'mongodb', 'shell', 'hacks', 'tweaks' ],
+35 silly resolved     author: { name: 'Tyler Brock', email: 'tyler.brock@gmail.com' },
+35 silly resolved     homepage: 'http://tylerbrock.github.io/mongo-hacker/',
+35 silly resolved     license: 'MIT',
+35 silly resolved     bugs: { url: 'https://github.com/TylerBrock/mongo-hacker/issues' },
+35 silly resolved     readme: '# MongoDB Shell Enhancements\n\n## Warnings\n\n* These enhancements are useful to me but they don\'t make sense for everyone. Feel free to tweak to your desire and please submit pull requests.\n* Does not work in Windows (currently)\n* Does not work with shells or db servers < 2.2 (currently)\n* Updates called on existing cursors are new and experimental (see notes in API section)\n\n## Installation\n\nLink mongo_hacker.js to `.mongorc.js` in your home directory:\n\n```sh\nmake\n```\n\nor (the manual way)\n\n```sh\nln -sf <mongo-hacker-dir>/mongo_hacker.js ~/.mongorc.js\n```\n\nNote: This currently only works with the v2.2+ of shell (which you can use with earlier versions of the server safely)\n\n## Enhancements\n\n### Basic UX\n\n  - Highlight querytime if verboseShell is enabled\n    - In **green** if querytime is at or below slowms\n    - In **red** if query time is above slowms\n  - IndexParanoia\n    - Automatically show information about index use -- to disable: `setIndexParanoia(false)`\n  - Default indent is 2 spaces instead of tab\n    - Customizable by setting `__indent`\n  - Verbose shell is enabled by default -- to disable: `setVerboseShell(false)`\n  - Disable notfication of "Type \'it\' for more"\n  - Custom prompt: `hostname(process-version)[rs status] db>`\n  - Always pretty print\n  - Show DBs has aligned columns and shows less significant digits (in master for Mongo 2.5/2.6)\n  - Nicer sh.status() output (remove lastmod, take up less space, colorize chunk\'s shard)\n\n#### Colorization\n\nColorized query output\n\n![Colorized Output](http://tylerbrock.github.com/mongo-hacker/screenshots/colorized_shell.png)\n\n### API Additions\n\n#### General\n\nFilter for a collection of documents:\n\n```js\ndb.collection.filter(<criteria>)\n```\n\nOne for finding a single document:\n\n```js\ndb.collection.find({ ... }).one() == db.collection.findOne({ ... })\n```\n\nSelect for selecting fields to return (projection):\n\n```js\ndb.collection.find({ ... }).select({ name: 1 })\n```\n\nReverse for descending sort by insertion order (default) or arbitrary field:\n\n```js\ndb.collection.find({ ... }).reverse()\ndb.collection.find({ ... }).reverse(\'createDate\')\n```\n\nLast for finding last inserted document (default) or document last by given field:\n\n```js\ndb.collection.find({ ... }).last()\ndb.collection.find({ ... }).last(\'createDate\')\n```\n\nUpdate, Replace, Upsert and Remove can be called on a DBQuery Object:\n\n```js\ndb.collection.find({ ... }).update({ ... })  // multi update\ndb.collection.find({ ... }).replace({ ... }) // single replacement\ndb.collection.find({ ... }).upsert({ ... })  // single upsert\ndb.collection.find({ ... }).remove()         // multi remove\n```\n\nSort, limit, and skip through multi updates and removes:\n\n```js\ndb.collection.find({ ... }).limit(7).update({ ... })\ndb.collection.find({ ... }).sort({ ... }).skip(1).limit(3).update({ ... })\ndb.collection.find({ ... }).limit(3).remove()\n```\n\n**Note**: *The performance of multi updates involving a skip or limit may be worse than those without those specifications due to there being absolutely no native support for this feature in MongoDB itself. It should be understood by the user of this software that use of this feature (by calling update on a cursor rather than a collection) is advanced and experimental. The option to do this sort of operation is purely additive to the MongoDB experience with MongoHacker and usage of it is in no way required. Furthermore, its inclusion in this enhancement does not effect the operation of updates invoked through collections and, in practice, is insanely useful.*\n\n\n#### Aggregation Framework\n\nThe aggregation framework is now fluent as well. You can use it as currently documented or via the chainable methods.\n\nCalling aggregate without an array of operations or $operations will make it a match.\n\n```js\n// matches every document\ndb.collection.aggregate()\ndb.collection.aggregate({})\n\n// matches documents where the "a" is equal to 1\ndb.collection.aggregate({a: 1})\n\n// matches documents where "a" is greater than 7\ndb.collection.aggregate({a: {$gt: 7}})\n```\n\nAdditional methods can then be chained on top of the inital match in order to make more complicated aggregations.\n\n```js\n// Match and project\ndb.collection.aggregate(<querydoc>).project(<projection>)\ndb.collection.aggregate({a: 1}).project({a: 1, _id: 0})\n\n// Match, group and sort\ndb.collection.aggregate({<match>}).group({<group>}).sort({<sort>})\ndb.test.aggregate().group({_id: \'$a\', \'sum\': {\'$sum\': 1}}).sort({sum: -1})\n```\n\n#### Helpers\n\nGeneral Shell Helpers\n  - `findCommand(\'search\')` list commands that match the search string\n\nAggregation Framework Helpers -- on collections\n  - Group and Count: `gcount(group_field, filter)`\n  - Group and Sum: `gsum(group_field, sum_field, filter)`\n  - Group and Average: `gavg(group_field, avg_field, filter)`\n\n',
+35 silly resolved     readmeFilename: 'README.md',
+35 silly resolved     _id: 'mongo-hacker@0.0.3',
+35 silly resolved     _shasum: '3405ff3f2d4494b8daba308f673170e04e633f52',
+35 silly resolved     _from: 'mongo-hacker@',
+35 silly resolved     _resolved: 'https://registry.npmjs.org/mongo-hacker/-/mongo-hacker-0.0.3.tgz' } ]
+36 info install mongo-hacker@0.0.3 into /usr/local/lib
+37 info installOne mongo-hacker@0.0.3
+38 info /usr/local/lib/node_modules/mongo-hacker unbuild
+39 verbose tar unpack /Users/MacBookPro/.npm/mongo-hacker/0.0.3/package.tgz
+40 silly lockFile 1e024ac4-al-lib-node-modules-mongo-hacker tar:///usr/local/lib/node_modules/mongo-hacker
+41 verbose lock tar:///usr/local/lib/node_modules/mongo-hacker /Users/MacBookPro/.npm/1e024ac4-al-lib-node-modules-mongo-hacker.lock
+42 silly lockFile 15cc91f3-m-mongo-hacker-0-0-3-package-tgz tar:///Users/MacBookPro/.npm/mongo-hacker/0.0.3/package.tgz
+43 verbose lock tar:///Users/MacBookPro/.npm/mongo-hacker/0.0.3/package.tgz /Users/MacBookPro/.npm/15cc91f3-m-mongo-hacker-0-0-3-package-tgz.lock
+44 silly gunzTarPerm modes [ '755', '644' ]
+45 silly gunzTarPerm extractEntry package.json
+46 silly gunzTarPerm extractEntry .npmignore
+47 silly gunzTarPerm extractEntry README.md
+48 silly gunzTarPerm extractEntry base.js
+49 silly gunzTarPerm extractEntry config.js
+50 silly gunzTarPerm extractEntry Makefile
+51 silly gunzTarPerm extractEntry hacks/aggregation.js
+52 silly gunzTarPerm extractEntry hacks/color.js
+53 silly gunzTarPerm extractEntry hacks/common.js
+54 silly gunzTarPerm extractEntry hacks/find_and_modify.js
+55 silly gunzTarPerm extractEntry hacks/cmd_search.js
+56 silly gunzTarPerm extractEntry hacks/index_paranoia.js
+57 silly gunzTarPerm extractEntry hacks/old_aggregation.js
+58 silly gunzTarPerm extractEntry hacks/prompt.js
+59 silly gunzTarPerm extractEntry hacks/sh_status.js
+60 silly gunzTarPerm extractEntry hacks/show_dbs.js
+61 silly gunzTarPerm extractEntry hacks/auto_complete.js
+62 silly gunzTarPerm extractEntry hacks/uuid.js
+63 silly gunzTarPerm extractEntry hacks/api.js
+64 silly gunzTarPerm extractEntry hacks/verbose.js
+65 silly gunzTarPerm extractEntry hacks/helpers.js
+66 silly lockFile 1e024ac4-al-lib-node-modules-mongo-hacker tar:///usr/local/lib/node_modules/mongo-hacker
+67 silly lockFile 1e024ac4-al-lib-node-modules-mongo-hacker tar:///usr/local/lib/node_modules/mongo-hacker
+68 silly lockFile 15cc91f3-m-mongo-hacker-0-0-3-package-tgz tar:///Users/MacBookPro/.npm/mongo-hacker/0.0.3/package.tgz
+69 silly lockFile 15cc91f3-m-mongo-hacker-0-0-3-package-tgz tar:///Users/MacBookPro/.npm/mongo-hacker/0.0.3/package.tgz
+70 info preinstall mongo-hacker@0.0.3
+71 verbose readDependencies using package.json deps
+72 verbose readDependencies using package.json deps
+73 silly resolved []
+74 verbose about to build /usr/local/lib/node_modules/mongo-hacker
+75 info build /usr/local/lib/node_modules/mongo-hacker
+76 verbose linkStuff [ true,
+76 verbose linkStuff   '/usr/local/lib/node_modules',
+76 verbose linkStuff   true,
+76 verbose linkStuff   '/usr/local/lib/node_modules' ]
+77 info linkStuff mongo-hacker@0.0.3
+78 verbose linkBins mongo-hacker@0.0.3
+79 verbose linkMans mongo-hacker@0.0.3
+80 verbose rebuildBundles mongo-hacker@0.0.3
+81 info install mongo-hacker@0.0.3
+82 verbose unsafe-perm in lifecycle false
+83 info mongo-hacker@0.0.3 Failed to exec install script
+84 info /usr/local/lib/node_modules/mongo-hacker unbuild
+85 info preuninstall mongo-hacker@0.0.3
+86 info uninstall mongo-hacker@0.0.3
+87 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild mongo-hacker@0.0.3
+88 info postuninstall mongo-hacker@0.0.3
+89 verbose unsafe-perm in lifecycle false
+90 info mongo-hacker@0.0.3 Failed to exec postuninstall script
+91 warn continuing anyway mongo-hacker@0.0.3 postuninstall: `make uninstall`
+91 warn continuing anyway Exit status 2
+92 error mongo-hacker@0.0.3 install: `make all`
+92 error Exit status 2
+93 error Failed at the mongo-hacker@0.0.3 install script.
+93 error This is most likely a problem with the mongo-hacker package,
+93 error not with npm itself.
+93 error Tell the author that this fails on your system:
+93 error     make all
+93 error You can get their info via:
+93 error     npm owner ls mongo-hacker
+93 error There is likely additional logging output above.
+94 error System Darwin 13.3.0
+95 error command "node" "/usr/local/bin/npm" "install" "-g" "mongo-hacker"
+96 error cwd /Users/MacBookPro/devmountain/tippedevents/BackgroundImageTest/app/outdatedbrowser
+97 error node -v v0.10.28
+98 error npm -v 1.4.9
+99 error code ELIFECYCLE
+100 verbose exit [ 1, true ]
