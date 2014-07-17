@@ -9,47 +9,8 @@
 </head>
 
 <body ng-app="crowdTipped">
-  <div class="jumbo">
-  <video autoplay loop>
-<source src="videos/video2.mp4" type="video/mp4">
-</video>
-    <nav>
-  	  <ul>
-  	    <li class="login">Login</li>
-  	  </ul>
-    </nav>
-  <div class="bg-white" ng-controller="mainCtrl">
-    <img ng-hide="clicked" class="iphone" src="images/iphonoe.png">
-    <div class="event-form">
-    	<h4>Create Your Event</h4>
-    	<input type="text" placeholder="Event Name" ng-model="newEventTitle"></input>
-    	<input type="text" placeholder="Where?" ng-model="newEventLocation"></input>
-    	<input type="text" placeholder="What time?" ng-model="newEventTime"></input>
-    	<input type="text" placeholder="Who? (phone number)" ng-model="newEventAttendee"><button>+</button>
-    	<input type="text" placeholder="Tipping point" ng-model="newEventTippingPoint">
-    	<input type="submit" ng-click="addEvent($event)">
-    </div>
-  	<h1>CrowdTipped</h1>
-  	<h5>Crowdsource your next event</h5>
-  	<button ng-click="clicked = true" class="create-btn"><i class="fa fa-users"></i>&#160;&#160;CREATE AN EVENT</button>
-  	<h6>How does it work?</h6>
-  </div>
-</div>
 
-<div class="middle">
-	<h3>How does CrowdTipped work?</h3>
-	<ol>
-		<li>Propose an event.</li>
-		<li>Set a tipping point, which is the number of people that need to commit before the event goes live.</li>
-		<li>Get a notification when the event is tipped.</li>
-	</ol>
-	<p>That&#39;s it!</p>
-</div>
-
-<div class="bottom">
-	<h3>Still don't get it?</h3>
-	<p>Let&#39;s say you want to play basketball with some friends, and you want to make sure you get enough for at least 3 on 3, or 6 people total. CrowdTipped allows you to set a tipping point on the event, meaning that only if 6 people have said they&#39;ll be there will the event get tipped. Think of it like Kickstarter for events.</p>
-</div>
+<div ng-view=""></div>
 <!-- <div id="outdated">
      <h6>Your browser is out-of-date!</h6>
      <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
@@ -57,10 +18,13 @@
 </div> -->
 
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js"></script>
 <script src="https://cdn.firebase.com/js/client/1.0.17/firebase.js"></script>
 <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
-<script type="text/javascript" src="scripts/app.js"></script>
+<script type="text/javascript" src="app.js"></script>
 <script type="text/javascript" src="scripts/controllers/mainCtrl.js"></script>
+<script type="text/javascript" src="scripts/services/messageService.js"></script>
+<script type="text/javascript" src="scripts/controllers/confirmCtrl.js"></script>
 <!-- <script src="outdatedBrowser.min.js"></script> -->
 </body>
 </html>

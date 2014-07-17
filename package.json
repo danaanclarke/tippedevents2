@@ -9,6 +9,5 @@
       "angular-fire": "*",
       "firebase": "*",
       "body-parser": "*"
-      
     }
 }

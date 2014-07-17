@@ -1,29 +1,33 @@
-angular.module('crowdTipped', 'twilioService').controller('mainCtrl', function( $scope, $http, $firebase) {
+'use strict';
+
+app.controller('mainCtrl', ['$scope', '$firebase', '$location', function( $scope, $firebase, $location, messageService) {
 	$scope.clicked = false;
 
     var fire = new Firebase("https://crowdtipped.firebaseio.com/events");
-    
-    $scope.newEventTitle="";
-    $scope.newEventLocation="";
-    $scope.newEventTime="";
-    $scope.newEventAttendee="";
-    $scope.newEventTippingPoint="";
+
+    $scope.newEvent = {};
     $scope.events = $firebase(fire);
     $scope.addEvent = function (e) {
-    	$scope.events.$add({
-    		name: $scope.newEventTitle,
-    		location: $scope.newEventLocation,
-    		time: $scope.newEventTime,
-    		attendees: $scope.newEventAttendee,
-    		tippingpoint: $scope.newEventTippingPoint
-    	});
-
+        $scope.events.$add(e).then(function(data){
+           var eventData = data.name();
+           $location.path('/details/' + eventData);
+        })
+        $scope.newEvent = null;
     };
 
-// var response = $http.sendrequest('/sendText',{/*data*/}){
+    messageService.getData().then(function(data) {
+        $scope.data = data;
+        $scope.event = {
+            newEvent.Title:"h",
+            newEvent.location: "g"
+        }
 
-}
-});
+    messageService.post(event)
+    })
+
+}]);
+
+
    
 
 
