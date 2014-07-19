@@ -1,15 +1,15 @@
-'use strict';
-
 var express = require('express');
+var routes = require('./routes');
+
+
 var app = express();
-var bodyparser = require('body-parser');
 
-app.use(bodyparser.json());
 
-app.post = ('/message_send', function(req, res) {
-  var msg = req.param('msg');
-});
+app.get('/', routes.responseSMS);
 
-var server = app.listen(8000, function() {
-    console.log('Listening on port %d', server.address().port);
+app.get('/sendMessage', routes.sendSMS);
+
+
+app.listen(8000, function(){
+    console.log('connected!');
 });

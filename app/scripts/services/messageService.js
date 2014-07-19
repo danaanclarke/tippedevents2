@@ -1,11 +1,12 @@
 'use strict';
 
-app.service('messageService', function ($http) {
-		this.getData = function() {
-            return $http.get('http://localhost:8000/message_send/');
-            };
+var app = angular.module('messageModule', ['ngResource']);
 
-        this.postData = function (data) {
-            return $http.post('/message_send', data);
-            };
+app.factory('messageService', function ($http, $resource) {
+    return $resource('https://d067732.ngrok.com/sendMessage/', {}, {
+        get: {method: 'GET'}
+    });
+
+
+
 });

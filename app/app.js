@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('crowdTipped', ['ngRoute', 'firebase']);
+var app = angular.module('crowdTipped', ['ngRoute', 'firebase', 'mainModule', 'messageModule']);
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider

@@ -1,6 +1,21 @@
 <div class="confirmation">
-       "1 /"  {{event.TippingPoint}} people have confirmed.
+       1 /  {{event.TippingPoint}} people have confirmed.
 <p class="confmsg">
     But go explore the rest of the internets, we'll notify you when this event gets tipped!
 </p>
 </div>
+
+<div class="invite">
+    <label>Invite Friend</label>
+    <select ng-model="newInvite" ng-options="friend.name for friend in friendsArray"></select>
+    {{newInvite}}
+    <button ng-click="sendFriend(newInvite)"></button>
+
+</div>
+
+
+
+<input type="text" placeholder="Who? (phone number)" ng-model="newEvent.Attendee1">
+<input type="text" placeholder="Who? (phone number)" ng-model="newEvent.Attendee2">
+<input type="text" placeholder="Who? (phone number)" ng-model="newEvent.Attendee3">
+<input type="text" placeholder="Who? (phone number)" ng-model="newEvent.Attendee4">
