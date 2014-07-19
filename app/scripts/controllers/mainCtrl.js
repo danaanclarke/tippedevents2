@@ -1,8 +1,8 @@
 'use strict';
 
-var app = angular.module('mainModule', ['firebase', 'messageModule']);
+var app = angular.module('crowdTipped');
 
-app.controller('mainCtrl', ['$scope', '$firebase', '$location', function( $scope, $firebase, $location, messageService) {
+app.controller('mainCtrl', function( $scope, $firebase, $location, messageService) {
     $scope.clicked = false;
 
     var fire = new Firebase("https://crowdtipped.firebaseio.com/events");
@@ -15,10 +15,14 @@ app.controller('mainCtrl', ['$scope', '$firebase', '$location', function( $scope
             $location.path('/details/' + eventData);
         });
         $scope.newEvent = null;
+
+        $scope.submit();
     };
 
-
-}]);
+    $scope.submit = function(){
+        messageService.send()
+    }
+});
 
 
    

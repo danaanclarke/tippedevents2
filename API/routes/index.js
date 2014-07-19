@@ -11,7 +11,7 @@ var client = require('twilio')(accountSid, authToken);
 
 exports.responseSMS = function(req, res) {
     var resp = new twilio.TwimlResponse();
-    resp.message('Thanks for responding!');
+    resp.message('Alright! We\'ll let you know when the event is live!);
     res.send(resp.toString()).type('text/xml');
 };
 
@@ -21,7 +21,7 @@ exports.sendSMS = function(req, res){
     console.log(invite);
 
     client.sendMessage({
-        body: 'Please Vote',
+        body: 'Barbecue at Andrew\'s house at 7:00 PM. Reply "yes" if you can make it',
         to: '+18017696432',
         from: '+18016920756'
     }, function(err,message){

@@ -1,8 +1,6 @@
 'use strict';
 
-var app = angular.module('ConfirmModule', ['messageModule']);
-
-app.controller('confirmCtrl', ['messageService'], function($scope, $routeParams, $firebase, messageService) {
+app.controller('confirmCtrl', function($scope, $routeParams, $firebase, messageService) {
 
     var fireBaseChild = $routeParams.id;
     var fire = new Firebase("https://crowdtipped.firebaseio.com/events/" + fireBaseChild);

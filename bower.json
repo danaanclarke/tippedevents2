@@ -1,0 +1,10 @@
+{
+  "name": "tippedevents",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-route": "~1.2.x",
+    "firebase": "*",
+    "angularfire": "~0.7.1"
+  }
+}

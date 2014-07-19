@@ -1,12 +1,12 @@
 'use strict';
 
-var app = angular.module('messageModule', ['ngResource']);
+var app = angular.module('crowdTipped');
 
-app.factory('messageService', function ($http, $resource) {
-    return $resource('https://d067732.ngrok.com/sendMessage/', {}, {
-        get: {method: 'GET'}
-    });
-
-
-
+app.factory('messageService', function ($http) {
+    return {
+        send: function() {
+            return $http({url: 'http://localhost:8000/sendMessage/', method: 'GET'});
+        }
+    };
 });
+
